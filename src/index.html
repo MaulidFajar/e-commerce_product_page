@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+  </head>
+  <body>
+    <header class="w-full">
+      <div class="md:container">
+        <nav class="flex justify-between items-center border-b pt-4">
+          <div class="flex">
+            <button
+              class="burger_btn absolute flex flex-col left-1 z-50 md:hidden"
+            >
+              <img
+                src="assets/images/icon-menu.svg"
+                alt="button to open menu"
+              />
+            </button>
+            <div
+              id="overlay"
+              class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300"
+            ></div>
+            <div class="logo">
+              <img src="assets/images/logo.svg" alt="sneakers logo" />
+            </div>
+            <ul
+              class="navbar_list flex flex-col fixed top-0 left-0 font-semibold md:font-normal md:relative z-20 w-0 md:w-auto pt-20 md:flex-row md:gap-x-5 md:ml-10 md:pt-0 h-screen md:h-auto bg-white place-items-start transition-all duration-300 ease-in-out overflow-hidden"
+            >
+              <li class="nav_link pb-3 pl-5"><a href="">Collections</a></li>
+              <li class="nav_link pb-3 pl-5"><a href="">Men</a></li>
+              <li class="nav_link pb-3 pl-5"><a href="">Women</a></li>
+              <li class="nav_link pb-3 pl-5"><a href="">About</a></li>
+              <li class="nav_link pb-3 pl-5"><a href="">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="inline-flex items-center gap-x-7">
+            <div class="card">
+              <img
+                src="assets/images/icon-cart.svg"
+                alt=""
+                width="20"
+                height="10"
+              />
+            </div>
+            <div class="user_profile">
+              <img
+                src="assets/images/image-avatar.png"
+                alt=""
+                width="30"
+                height="30"
+              />
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container md:container">
+        <div class="products flex items-center h-screen">
+          <div class="product_img">
+            <div class="main_img">
+              <img
+                src="assets/images/image-product-1.jpg"
+                alt=""
+                class="rounded-xl"
+                width="600"
+              />
+            </div>
+            <div class="img-tumbnails"></div>
+          </div>
+          <div class="product_info">
+            <p class="product_type">Sneaker Company</p>
+            <h1 class="product_name">Fall Limited Edition Sneakers</h1>
+            <p class="product_description">
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they’ll withstand
+              everything the weather can offer.
+            </p>
+            <div class="product_price">
+              <div class="discounted_price">
+                <p>$125.00</p>
+                <span>50%</span>
+              </div>
+              <p class="price">$250.00</p>
+            </div>
+            <div class="product_pricing">
+              <div class="quantity_editor">
+                <button class="decrement">
+                  <svg
+                    width="12"
+                    height="4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs>
+                      <path
+                        d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
+                        id="a"
+                      />
+                    </defs>
+                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" />
+                  </svg>
+                </button>
+                <input type="number" name="" id="" />
+                <button class="increment">
+                  <svg
+                    width="12"
+                    height="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs>
+                      <path
+                        d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+                        id="b"
+                      />
+                    </defs>
+                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b" />
+                  </svg>
+                </button>
+              </div>
+              <button type="button">
+                <img src="assets/images/icon-cart.svg" alt="" />
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
