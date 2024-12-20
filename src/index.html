@@ -17,43 +17,74 @@
   </head>
   <body>
     <header class="w-full">
-      <div class="md:container">
-        <nav class="flex justify-between items-center border-b pt-4">
+      <div class="md:container md:relative">
+        <nav
+          class="flex justify-between items-center md:pt-4 py-4 px-6 md:relative md:py-0 md:px-0 md:after:w-full md:after:h-px md:after:bg-slate-200 after:absolute after:bottom-0"
+        >
           <div class="flex">
             <button
-              class="burger_btn absolute flex flex-col left-1 z-50 md:hidden"
+              class="burger_btn absolute flex flex-col left-5 top-6 z-50 md:hidden"
             >
               <img
                 src="assets/images/icon-menu.svg"
+                class="burger_img"
                 alt="button to open menu"
               />
             </button>
-            <div
-              id="overlay"
-              class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300"
-            ></div>
-            <div class="logo">
+
+            <div class="logo ml-6 md:ml-0">
               <img src="assets/images/logo.svg" alt="sneakers logo" />
             </div>
             <ul
-              class="navbar_list flex flex-col fixed top-0 left-0 font-semibold md:font-normal md:relative z-20 w-0 md:w-auto pt-20 md:flex-row md:gap-x-5 md:ml-10 md:pt-0 h-screen md:h-auto bg-white place-items-start transition-all duration-300 ease-in-out overflow-hidden"
+              class="navbar_list flex flex-col fixed top-0 left-0 font-semibold md:font-normal md:relative z-20 w-0 md:w-auto pt-20 md:flex-row md:gap-x-9 md:ml-10 md:pt-0 h-screen md:h-auto bg-white md:bg-transparent place-items-start transition-all duration-300 ease-in-out overflow-hidden md:text-dark-grayish-blue"
             >
-              <li class="nav_link pb-3 pl-5"><a href="">Collections</a></li>
-              <li class="nav_link pb-3 pl-5"><a href="">Men</a></li>
-              <li class="nav_link pb-3 pl-5"><a href="">Women</a></li>
-              <li class="nav_link pb-3 pl-5"><a href="">About</a></li>
-              <li class="nav_link pb-3 pl-5"><a href="">Contact</a></li>
+              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
+                <a
+                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
+                  href=""
+                  >Collections</a
+                >
+              </li>
+              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
+                <a
+                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
+                  href=""
+                  >Men</a
+                >
+              </li>
+              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
+                <a
+                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
+                  href=""
+                  >Women</a
+                >
+              </li>
+              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
+                <a
+                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
+                  href=""
+                  >About</a
+                >
+              </li>
+              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
+                <a
+                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
+                  href=""
+                  >Contact</a
+                >
+              </li>
             </ul>
           </div>
-
-          <div class="inline-flex items-center gap-x-7">
+          <div class="inline-flex items-center gap-x-7 md:pb-8">
             <div class="card">
               <img
                 src="assets/images/icon-cart.svg"
                 alt=""
                 width="20"
                 height="10"
+                class="cursor-pointer"
               />
+              <div class="card-box absolute z-10"></div>
             </div>
             <div class="user_profile">
               <img
@@ -68,37 +99,98 @@
       </div>
     </header>
     <main>
-      <div class="container md:container">
-        <div class="products flex items-center h-screen">
+      <div class="md:container">
+        <div
+          class="products flex flex-col md:flex-row md:items-center md:h-screen md:px-11 gap-x-20"
+        >
           <div class="product_img">
             <div class="main_img">
               <img
                 src="assets/images/image-product-1.jpg"
                 alt=""
-                class="rounded-xl"
-                width="600"
+                class="md:rounded-xl cursor-pointer"
               />
             </div>
-            <div class="img-tumbnails"></div>
+            <div class="img-tumbnails hidden md:flex gap-x-2 mt-2">
+              <div class="thumbnail">
+                <img
+                  class="md:rounded-xl cursor-pointer"
+                  src="assets/images/image-product-1.jpg"
+                  alt=""
+                  width="175"
+                />
+              </div>
+              <div class="thumbnail">
+                <img
+                  class="md:rounded-xl cursor-pointer"
+                  src="assets/images/image-product-2.jpg"
+                  alt=""
+                  width="175"
+                />
+              </div>
+              <div class="thumbnail">
+                <img
+                  class="md:rounded-xl cursor-pointer"
+                  src="assets/images/image-product-3.jpg"
+                  alt=""
+                  width="175"
+                />
+              </div>
+              <div class="thumbnail">
+                <img
+                  class="md:rounded-xl cursor-pointer"
+                  src="assets/images/image-product-4.jpg"
+                  alt=""
+                  width="175"
+                />
+              </div>
+            </div>
           </div>
-          <div class="product_info">
-            <p class="product_type">Sneaker Company</p>
-            <h1 class="product_name">Fall Limited Edition Sneakers</h1>
-            <p class="product_description">
+          <div class="product_info p-5">
+            <p
+              class="product_type uppercase text-sm font-bold tracking-widest text-dark-grayish-blue"
+            >
+              Sneaker Company
+            </p>
+            <h1
+              class="product_name font-extrabold md:font-bold text-3xl md:text-5xl md:pr-9 pr-5 my-2 text-dark-blue"
+            >
+              Fall Limited Edition Sneakers
+            </h1>
+            <p
+              class="product_description text-dark-grayish-blue text-sm md:text-lg md:pr-6"
+            >
               These low-profile sneakers are your perfect casual wear companion.
-              Featuring a durable rubber outer sole, they’ll withstand
+              Featuring a durable rubber outer sole, they'll withstand
               everything the weather can offer.
             </p>
-            <div class="product_price">
-              <div class="discounted_price">
-                <p>$125.00</p>
-                <span>50%</span>
+            <div
+              class="product_price flex justify-between md:justify-start md:flex-col md:items-start items-center pr-3 mt-4"
+            >
+              <div class="discounted_price flex gap-x-2 items-center md:mb-2">
+                <p
+                  class="text-dark-blue font-bold text-xl md:text-3xl tracking-wide"
+                >
+                  $125.00
+                </p>
+                <span
+                  class="bg-black text-white text-xs font-semibold px-2 py-0.5 rounded"
+                  >50%</span
+                >
               </div>
-              <p class="price">$250.00</p>
+              <p
+                class="price line-through text-xs lg:text-sm font-extrabold text-dark-grayish-blue"
+              >
+                $250.00
+              </p>
             </div>
-            <div class="product_pricing">
-              <div class="quantity_editor">
-                <button class="decrement">
+            <div
+              class="product_pricing flex flex-col md:flex-row md:items-center md:gap-x-4"
+            >
+              <div
+                class="quantity_editor flex justify-center md:w-72 bg-light-grayish-blue rounded-lg my-4"
+              >
+                <button class="decrement px-5">
                   <svg
                     width="12"
                     height="4"
@@ -114,8 +206,14 @@
                     <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" />
                   </svg>
                 </button>
-                <input type="number" name="" id="" />
-                <button class="increment">
+                <input
+                  type="number"
+                  name="inputProduct"
+                  id="inputProduct"
+                  value="0"
+                  class="w-full bg-transparent text-center text-black font-semibold text-xs py-4 outline-none"
+                />
+                <button class="increment px-5">
                   <svg
                     width="12"
                     height="12"
@@ -132,8 +230,11 @@
                   </svg>
                 </button>
               </div>
-              <button type="button">
-                <img src="assets/images/icon-cart.svg" alt="" />
+              <button
+                type="submit"
+                class="cart_btn w-full md:w-full flex justify-center items-center bg-orange py-3 text-sm rounded-lg font-extrabold text-dark-blue gap-x-3 transition-all duration-150"
+              >
+                <img src="assets/images/icon-cart.svg" alt="" width="16" />
                 Add to cart
               </button>
             </div>
@@ -141,7 +242,10 @@
         </div>
       </div>
     </main>
-
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300"
+    ></div>
     <script src="main.js"></script>
   </body>
 </html>
