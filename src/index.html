@@ -104,12 +104,34 @@
           class="products flex flex-col md:flex-row md:items-center md:h-screen md:px-11 gap-x-20"
         >
           <div class="product_img">
-            <div class="main_img">
+            <div class="main_img_wrapper relative">
+              <button
+                id="prev_btn"
+                class="absolute top-40 left-3 rounded-full px-3 py-3 bg-white md:hidden"
+              >
+                <img
+                  src="assets/images/icon-previous.svg"
+                  alt=""
+                  class="w-2 mx-0.5"
+                />
+              </button>
+
               <img
                 src="assets/images/image-product-1.jpg"
                 alt=""
-                class="md:rounded-xl cursor-pointer"
+                class="main_img md:rounded-xl md:cursor-pointer"
               />
+
+              <button
+                id="next_btn"
+                class="rounded-full px-3 py-3 bg-white absolute right-3 top-40 md:hidden"
+              >
+                <img
+                  src="assets/images/icon-next.svg"
+                  alt=""
+                  class="w-2 mx-0.5"
+                />
+              </button>
             </div>
             <div class="img-tumbnails hidden md:flex gap-x-2 mt-2">
               <div class="thumbnail">
@@ -143,6 +165,88 @@
                   alt=""
                   width="175"
                 />
+              </div>
+            </div>
+          </div>
+
+          <!-- lightbox -->
+
+          <div
+            class="lightbox hidden fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50"
+          >
+            <div class="relative">
+              <button class="lightbox_close_btn">
+                <img
+                  src="assets/images/icon-close.svg"
+                  class="absolute right-0 -top-1"
+                  alt=""
+                />
+              </button>
+              <div class="main_img_wrapper relative">
+                <button
+                  id="lightbox_prev_btn"
+                  class="absolute top-48 -left-5 rounded-full px-4 py-4 bg-white"
+                >
+                  <img
+                    src="assets/images/icon-previous.svg"
+                    alt=""
+                    class="w-2.5 mr-1"
+                  />
+                </button>
+
+                <img
+                  src="assets/images/image-product-1.jpg"
+                  alt=""
+                  class="lightbox_main_img md:rounded-xl"
+                  width="450"
+                />
+
+                <button
+                  id="lightbox_next_btn"
+                  class="rounded-full px-4 py-4 bg-white absolute -right-5 top-48"
+                >
+                  <img
+                    src="assets/images/icon-next.svg"
+                    alt=""
+                    class="w-2.5 ml-1"
+                  />
+                </button>
+              </div>
+              <div
+                class="img-tumbnails hidden md:flex justify-center gap-x-5 mt-4"
+              >
+                <div class="lightbox_thumbnail">
+                  <img
+                    class="md:rounded-xl cursor-pointer"
+                    src="assets/images/image-product-1.jpg"
+                    alt=""
+                    width="75"
+                  />
+                </div>
+                <div class="lightbox_thumbnail">
+                  <img
+                    class="md:rounded-xl cursor-pointer"
+                    src="assets/images/image-product-2.jpg"
+                    alt=""
+                    width="75"
+                  />
+                </div>
+                <div class="lightbox_thumbnail">
+                  <img
+                    class="md:rounded-xl cursor-pointer"
+                    src="assets/images/image-product-3.jpg"
+                    alt=""
+                    width="75"
+                  />
+                </div>
+                <div class="lightbox_thumbnail">
+                  <img
+                    class="md:rounded-xl cursor-pointer"
+                    src="assets/images/image-product-4.jpg"
+                    alt=""
+                    width="75"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -244,7 +348,7 @@
     </main>
     <div
       id="overlay"
-      class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300"
+      class="fixed inset-0 bg-black z-50 opacity-0 pointer-events-none transition-opacity duration-300"
     ></div>
     <script src="main.js"></script>
   </body>

@@ -6,7 +6,15 @@ const incrementBtn = document.querySelector(".increment");
 const decrementBtn = document.querySelector(".decrement");
 const cartBtn = document.querySelector(".cart_btn ");
 const imgThumbnail = document.querySelectorAll(".thumbnail img");
-const mainImg = document.querySelector(".main_img img");
+const lightboxThumbnail = document.querySelectorAll(".lightbox_thumbnail img");
+const mainImg = document.querySelector(".main_img");
+const LightboxMainImg = document.querySelector(".lightbox_main_img");
+const prevBtn = document.getElementById("prev_btn");
+const nextBtn = document.getElementById("next_btn");
+const lightboxPrevBtn = document.getElementById("lightbox_prev_btn");
+const lightboxNextBtn = document.getElementById("lightbox_next_btn");
+const lightboxClsBtn = document.querySelector(".lightbox_close_btn");
+const lightboxContainer = document.querySelector(".lightbox");
 
 burgerBtn.addEventListener("click", () => {
   const burgerImg = document.querySelector(".burger_img");
@@ -43,20 +51,71 @@ cartBtn.addEventListener("click", () => {
 
 productInput.value = 0;
 
-imgThumbnail.forEach((img) => {
+let imgCurrentIndex = 0;
+
+const updateImg = () => {
+  const selectedImg = lightboxThumbnail[imgCurrentIndex];
+  lightboxThumbnail.src = selectedImg.src;
+
+  lightboxThumbnail.forEach((tumbnail) => {
+    tumbnail.parentElement.style.border = "none";
+  });
+  selectedImg.parentElement.style.border = "2px solid hsl(26, 100%, 55%)";
+  selectedImg.parentElement.style.borderRadius = "14px";
+};
+
+mainImg.addEventListener("click", () => {
+  lightboxContainer.classList.remove("hidden");
+  LightboxMainImg.src = mainImg.src;
+});
+
+imgThumbnail.forEach((img, index) => {
   img.addEventListener("click", () => {
     imgThumbnail.forEach((tumbnail) => {
       tumbnail.parentElement.style.border = "none";
-      tumbnail.style.opacity = "1";
     });
+
+    img.parentElement.style.border = "2px solid hsl(26, 100%, 55%)";
+    img.parentElement.style.borderRadius = "14px";
+
     mainImg.src = img.src;
-    img.parentElement.style.border = "2px solid hsl(26, 100%, 55%)";
-    img.parentElement.style.borderRadius = "14px";
-    img.style.opacity = "0.5";
+    imgCurrentIndex = index;
   });
-  if (mainImg.src === img.src) {
-    img.parentElement.style.border = "2px solid hsl(26, 100%, 55%)";
-    img.parentElement.style.borderRadius = "14px";
-    img.style.opacity = "0.5";
-  }
 });
+
+lightboxThumbnail.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    imgCurrentIndex = index;
+    updateImg();
+  });
+});
+
+prevBtn.addEventListener("click", () => {
+  imgCurrentIndex =
+    (imgCurrentIndex - 1 + imgThumbnail.length) % imgThumbnail.length;
+  updateImg();
+});
+
+nextBtn.addEventListener("click", () => {
+  imgCurrentIndex =
+    (imgCurrentIndex + 1 + imgThumbnail.length) % imgThumbnail.length;
+  updateImg();
+});
+
+lightboxClsBtn.addEventListener("click", () => {
+  lightboxContainer.classList.add("hidden");
+});
+
+lightboxPrevBtn.addEventListener("click", () => {
+  imgCurrentIndex =
+    (imgCurrentIndex - 1 + imgThumbnail.length) % imgThumbnail.length;
+  updateImg();
+});
+
+lightboxNextBtn.addEventListener("click", () => {
+  imgCurrentIndex =
+    (imgCurrentIndex + 1 + imgThumbnail.length) % imgThumbnail.length;
+  updateImg();
+});
+
+updateImg(0);
