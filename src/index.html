@@ -75,16 +75,29 @@
               </li>
             </ul>
           </div>
-          <div class="inline-flex items-center gap-x-7 md:pb-8">
-            <div class="card">
-              <img
-                src="assets/images/icon-cart.svg"
-                alt=""
-                width="20"
-                height="10"
-                class="cursor-pointer"
-              />
-              <div class="card-box absolute z-10"></div>
+          <div class="inline-flex items-center gap-x-7 md:pb-8 md:relative">
+            <div class="cart">
+              <div
+                class="cart_icon hover:bg-slate-100 p-2 rounded-lg cursor-pointer"
+              >
+                <img
+                  src="assets/images/icon-cart.svg"
+                  alt=""
+                  width="20"
+                  height="10"
+                />
+              </div>
+              <div
+                class="cart_basket hidden m-auto absolute z-10 top-18 md:top-11 left-0 w-[359px] h-60 flex flex-col inset-x-0 bg-white shadow-lg rounded-lg md:-translate-x-3/4"
+              >
+                <p
+                  class="border-b-2 border-slate-100 px-6 pt-4 pb-6 font-medium"
+                >
+                  Cart
+                </p>
+
+                <div class="px-6 product_basket"></div>
+              </div>
             </div>
             <div class="user_profile">
               <img
@@ -348,7 +361,7 @@
     </main>
     <div
       id="overlay"
-      class="fixed inset-0 bg-black z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+      class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300"
     ></div>
     <script src="main.js"></script>
   </body>

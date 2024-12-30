@@ -1,10 +1,16 @@
 const burgerBtn = document.querySelector(".burger_btn");
 const navbarList = document.querySelector(".navbar_list");
+const cartIconBtn = document.querySelector(".cart_icon");
+const cartBasket = document.querySelector(".cart_basket");
+const productBasket = document.querySelector(".product_basket");
+const deleteBtn = document.querySelector(".delete_btn");
+
 const main = document.getElementById("main");
 const productInput = document.getElementById("inputProduct");
 const incrementBtn = document.querySelector(".increment");
 const decrementBtn = document.querySelector(".decrement");
 const cartBtn = document.querySelector(".cart_btn ");
+
 const imgThumbnail = document.querySelectorAll(".thumbnail img");
 const lightboxThumbnail = document.querySelectorAll(".lightbox_thumbnail img");
 const mainImg = document.querySelector(".main_img");
@@ -32,6 +38,12 @@ burgerBtn.addEventListener("click", () => {
   }
 });
 
+productInput.value = 0;
+
+cartIconBtn.addEventListener("click", () => {
+  cartBasket.classList.toggle("hidden");
+});
+
 productInput.addEventListener("input", () => {
   console.log(Number(productInput.value));
 });
@@ -46,16 +58,57 @@ decrementBtn.addEventListener("click", () => {
 });
 
 cartBtn.addEventListener("click", () => {
-  alert(productInput.value);
+  productBasket.innerHTML = `<div class="flex items-center justify-center gap-x-4 py-5">
+                    <div class="product_img">
+                      <img
+                        src="assets/images/image-product-1.jpg"
+                        alt=""
+                        width="50"
+                        class="rounded-md"
+                      />
+                    </div>
+                    <div class="product_desc">
+                      <p>Fall Limited Edition Sneakers</p>
+                      <div class="price flex">
+                        <p>$125.00</p>
+                        <span class="mx-1"> x ${productInput.value} </span>
+                        <p>$${125.0 * productInput.value}.00</p>
+                      </div>
+                    </div>
+                    <img
+                      src="assets/images/icon-delete.svg"
+                      alt=""
+                      class="cursor-pointer"
+                      onclick="deleteCartItem()"
+                    />
+                  </div>
+                  <button
+                    class="mb-7 mt-1 w-full flex justify-center items-center bg-orange py-3 text-sm rounded-lg font-extrabold text-dark-blue gap-x-3 transition-all duration-150"
+                  >
+                    Checkout
+                  </button>`;
 });
 
-productInput.value = 0;
+const deleteCartItem = () => {
+  productBasket.innerHTML = "";
+};
 
 let imgCurrentIndex = 0;
 
-const updateImg = () => {
-  const selectedImg = lightboxThumbnail[imgCurrentIndex];
-  lightboxThumbnail.src = selectedImg.src;
+const updateImg = (index) => {
+  const selectedImg = imgThumbnail[index];
+  mainImg.src = selectedImg.src;
+
+  imgThumbnail.forEach((tumbnail) => {
+    tumbnail.parentElement.style.border = "none";
+  });
+  selectedImg.parentElement.style.border = "2px solid hsl(26, 100%, 55%)";
+  selectedImg.parentElement.style.borderRadius = "14px";
+};
+
+const updateLightboxImg = (index) => {
+  const selectedImg = lightboxThumbnail[index];
+  LightboxMainImg.src = selectedImg.src;
 
   lightboxThumbnail.forEach((tumbnail) => {
     tumbnail.parentElement.style.border = "none";
@@ -69,53 +122,50 @@ mainImg.addEventListener("click", () => {
   LightboxMainImg.src = mainImg.src;
 });
 
-imgThumbnail.forEach((img, index) => {
+lightboxThumbnail.forEach((img, index) => {
   img.addEventListener("click", () => {
-    imgThumbnail.forEach((tumbnail) => {
-      tumbnail.parentElement.style.border = "none";
-    });
-
-    img.parentElement.style.border = "2px solid hsl(26, 100%, 55%)";
-    img.parentElement.style.borderRadius = "14px";
-
-    mainImg.src = img.src;
+    updateLightboxImg(index);
+    updateImg(index);
     imgCurrentIndex = index;
   });
 });
 
-lightboxThumbnail.forEach((img, index) => {
+imgThumbnail.forEach((img, index) => {
   img.addEventListener("click", () => {
+    updateImg(index);
+    updateLightboxImg(index);
     imgCurrentIndex = index;
-    updateImg();
   });
 });
 
 prevBtn.addEventListener("click", () => {
   imgCurrentIndex =
     (imgCurrentIndex - 1 + imgThumbnail.length) % imgThumbnail.length;
-  updateImg();
+  updateImg(imgCurrentIndex);
 });
 
 nextBtn.addEventListener("click", () => {
   imgCurrentIndex =
     (imgCurrentIndex + 1 + imgThumbnail.length) % imgThumbnail.length;
-  updateImg();
-});
-
-lightboxClsBtn.addEventListener("click", () => {
-  lightboxContainer.classList.add("hidden");
+  updateImg(imgCurrentIndex);
 });
 
 lightboxPrevBtn.addEventListener("click", () => {
   imgCurrentIndex =
-    (imgCurrentIndex - 1 + imgThumbnail.length) % imgThumbnail.length;
-  updateImg();
+    (imgCurrentIndex - 1 + lightboxThumbnail.length) % lightboxThumbnail.length;
+  updateLightboxImg(imgCurrentIndex);
+  updateImg(imgCurrentIndex);
 });
 
 lightboxNextBtn.addEventListener("click", () => {
   imgCurrentIndex =
-    (imgCurrentIndex + 1 + imgThumbnail.length) % imgThumbnail.length;
-  updateImg();
+    (imgCurrentIndex + 1 + lightboxThumbnail.length) % lightboxThumbnail.length;
+  updateLightboxImg(imgCurrentIndex);
+  updateImg(imgCurrentIndex);
+});
+
+lightboxClsBtn.addEventListener("click", () => {
+  lightboxContainer.classList.add("hidden");
 });
 
 updateImg(0);

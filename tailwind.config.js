@@ -10,6 +10,9 @@ module.exports = {
       },
     },
     extend: {
+      spacing: {
+        18: "72px",
+      },
       textColor: {
         "dark-blue": "hsl(220, 13%, 13%)",
         "dark-grayish-blue": "hsl(219, 9%, 45%)",
