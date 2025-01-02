@@ -19,11 +19,11 @@
     <header class="w-full">
       <div class="md:container md:relative">
         <nav
-          class="flex justify-between items-center md:pt-4 py-4 px-6 md:relative md:py-0 md:px-0 md:after:w-full md:after:h-px md:after:bg-slate-200 after:absolute after:bottom-0"
+          class="flex justify-between items-center md:pt-4 py-4 px-6 md:relative md:py-0 md:px-0 md:after:w-full md:after:h-px md:after:bg-slate-200 after:absolute after:bottom-1"
         >
           <div class="flex">
             <button
-              class="burger_btn absolute flex flex-col left-5 top-6 z-50 md:hidden"
+              class="burger_btn absolute flex flex-col left-5 top-7 z-50 md:hidden"
             >
               <img
                 src="assets/images/icon-menu.svg"
@@ -38,50 +38,33 @@
             <ul
               class="navbar_list flex flex-col fixed top-0 left-0 font-semibold md:font-normal md:relative z-20 w-0 md:w-auto pt-20 md:flex-row md:gap-x-9 md:ml-10 md:pt-0 h-screen md:h-auto bg-white md:bg-transparent place-items-start transition-all duration-300 ease-in-out overflow-hidden md:text-dark-grayish-blue"
             >
-              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
-                <a
-                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
-                  href=""
-                  >Collections</a
-                >
+              <li class="nav_link">
+                <a class="nav_item" href="">Collections</a>
               </li>
-              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
-                <a
-                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
-                  href=""
-                  >Men</a
-                >
+              <li class="nav_link">
+                <a class="nav_item" href="">Men</a>
               </li>
-              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
-                <a
-                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
-                  href=""
-                  >Women</a
-                >
+              <li class="nav_link">
+                <a class="nav_item" href="">Women</a>
               </li>
-              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
-                <a
-                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
-                  href=""
-                  >About</a
-                >
+              <li class="nav_link">
+                <a class="nav_item" href="">About</a>
               </li>
-              <li class="nav_link ml-5 md:ml-0 pb-3 md:pb-9 relative">
-                <a
-                  class="nav_item md:hover:after:content-[''] md:hover:after:w-full md:hover:after:rounded-full md:hover:after:h-1 md:hover:after:bottom-0 md:hover:after:left-0 md:hover:after:absolute md:hover:after:bg-orange md:hover:text-dark-blue"
-                  href=""
-                  >Contact</a
-                >
+              <li class="nav_link">
+                <a class="nav_item" href="">Contact</a>
               </li>
             </ul>
           </div>
           <div class="inline-flex items-center gap-x-7 md:pb-8 md:relative">
             <div class="cart">
               <div
-                class="cart_icon hover:bg-slate-100 p-2 rounded-lg cursor-pointer"
+                class="cart_icon hover:bg-slate-100 p-2 rounded-lg cursor-pointer relative"
               >
+                <span
+                  class="item_count hidden text-[9px] px-[7px] bg-orange text-white rounded-full absolute right-0 top-0"
+                ></span>
                 <img
-                  src="assets/images/icon-cart.svg"
+                  src="assets/images/icon-cart-black.svg"
                   alt=""
                   width="20"
                   height="10"
@@ -96,10 +79,18 @@
                   Cart
                 </p>
 
-                <div class="px-6 product_basket"></div>
+                <div
+                  class="px-6 product_basket flex flex-col items-center justify-center h-40"
+                >
+                  <span class="font-bold text-dark-grayish-blue">
+                    Your cart is empty.
+                  </span>
+                </div>
               </div>
             </div>
-            <div class="user_profile">
+            <div
+              class="user_profile cursor-pointer hover:border-2 rounded-full border-orange-500 box-border"
+            >
               <img
                 src="assets/images/image-avatar.png"
                 alt=""
@@ -120,13 +111,22 @@
             <div class="main_img_wrapper relative">
               <button
                 id="prev_btn"
-                class="absolute top-40 left-3 rounded-full px-3 py-3 bg-white md:hidden"
+                class="absolute top-40 left-3 rounded-full px-3 py-2 bg-white md:hidden stroke-black hover:stroke-orange-500"
               >
-                <img
-                  src="assets/images/icon-previous.svg"
-                  alt=""
-                  class="w-2 mx-0.5"
-                />
+                <svg
+                  class="w-2 mr-0.5"
+                  width="12"
+                  height="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewbox="0 0 12 18"
+                >
+                  <path
+                    d="M11 1 3 9l8 8"
+                    stroke-width="3"
+                    fill="none"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </button>
 
               <img
@@ -137,17 +137,26 @@
 
               <button
                 id="next_btn"
-                class="rounded-full px-3 py-3 bg-white absolute right-3 top-40 md:hidden"
+                class="rounded-full px-3 py-2 bg-white absolute right-3 top-40 md:hidden stroke-black hover:stroke-orange-500"
               >
-                <img
-                  src="assets/images/icon-next.svg"
-                  alt=""
-                  class="w-2 mx-0.5"
-                />
+                <svg
+                  class="w-2 ml-0.5"
+                  width="13"
+                  height="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewbox="0 0 12 18"
+                >
+                  <path
+                    d="m2 1 8 8-8 8"
+                    stroke-width="3"
+                    fill="none"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </button>
             </div>
             <div class="img-tumbnails hidden md:flex gap-x-2 mt-2">
-              <div class="thumbnail">
+              <div class="thumbnail hover:opacity-50">
                 <img
                   class="md:rounded-xl cursor-pointer"
                   src="assets/images/image-product-1.jpg"
@@ -155,7 +164,7 @@
                   width="175"
                 />
               </div>
-              <div class="thumbnail">
+              <div class="thumbnail hover:opacity-50">
                 <img
                   class="md:rounded-xl cursor-pointer"
                   src="assets/images/image-product-2.jpg"
@@ -163,7 +172,7 @@
                   width="175"
                 />
               </div>
-              <div class="thumbnail">
+              <div class="thumbnail hover:opacity-50">
                 <img
                   class="md:rounded-xl cursor-pointer"
                   src="assets/images/image-product-3.jpg"
@@ -171,7 +180,7 @@
                   width="175"
                 />
               </div>
-              <div class="thumbnail">
+              <div class="thumbnail hover:opacity-50">
                 <img
                   class="md:rounded-xl cursor-pointer"
                   src="assets/images/image-product-4.jpg"
@@ -188,23 +197,37 @@
             class="lightbox hidden fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50"
           >
             <div class="relative">
-              <button class="lightbox_close_btn">
-                <img
-                  src="assets/images/icon-close.svg"
-                  class="absolute right-0 -top-1"
-                  alt=""
-                />
+              <button class="lightbox_close_btn absolute right-2 -top-1">
+                <svg
+                  class="fill-white hover:fill-orange-500"
+                  width="15"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                  />
+                </svg>
               </button>
-              <div class="main_img_wrapper relative">
+              <div class="lightbox_img_wrapper relative mt-5">
                 <button
                   id="lightbox_prev_btn"
-                  class="absolute top-48 -left-5 rounded-full px-4 py-4 bg-white"
+                  class="absolute top-48 -left-5 rounded-full px-5 py-4 bg-white stroke-black hover:stroke-orange-500"
                 >
-                  <img
-                    src="assets/images/icon-previous.svg"
-                    alt=""
-                    class="w-2.5 mr-1"
-                  />
+                  <svg
+                    class="w-2.5 mr-0.5"
+                    width="12"
+                    height="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 12 18"
+                  >
+                    <path
+                      d="M11 1 3 9l8 8"
+                      stroke-width="3"
+                      fill="none"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </button>
 
                 <img
@@ -216,45 +239,62 @@
 
                 <button
                   id="lightbox_next_btn"
-                  class="rounded-full px-4 py-4 bg-white absolute -right-5 top-48"
+                  class="rounded-full px-5 py-4 bg-white absolute -right-5 top-48 stroke-black hover:stroke-orange-500"
                 >
-                  <img
-                    src="assets/images/icon-next.svg"
-                    alt=""
-                    class="w-2.5 ml-1"
-                  />
+                  <svg
+                    class="w-2.5 ml-0.5"
+                    width="13"
+                    height="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewbox="0 0 12 18"
+                  >
+                    <path
+                      d="m2 1 8 8-8 8"
+                      stroke-width="3"
+                      fill="none"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </button>
               </div>
               <div
                 class="img-tumbnails hidden md:flex justify-center gap-x-5 mt-4"
               >
-                <div class="lightbox_thumbnail">
+                <div
+                  class="lightbox_thumbnail w-[75px] h-[75px] bg-white md:rounded-xl"
+                >
                   <img
-                    class="md:rounded-xl cursor-pointer"
+                    class="md:rounded-xl cursor-pointer hover:opacity-50"
                     src="assets/images/image-product-1.jpg"
                     alt=""
                     width="75"
                   />
                 </div>
-                <div class="lightbox_thumbnail">
+                <div
+                  class="lightbox_thumbnail w-[75px] h-[75px] bg-white md:rounded-xl"
+                >
                   <img
-                    class="md:rounded-xl cursor-pointer"
+                    class="md:rounded-xl cursor-pointer hover:opacity-50"
                     src="assets/images/image-product-2.jpg"
                     alt=""
                     width="75"
                   />
                 </div>
-                <div class="lightbox_thumbnail">
+                <div
+                  class="lightbox_thumbnail w-[75px] h-[75px] bg-white md:rounded-xl"
+                >
                   <img
-                    class="md:rounded-xl cursor-pointer"
+                    class="md:rounded-xl cursor-pointer hover:opacity-50"
                     src="assets/images/image-product-3.jpg"
                     alt=""
                     width="75"
                   />
                 </div>
-                <div class="lightbox_thumbnail">
+                <div
+                  class="lightbox_thumbnail w-[75px] h-[75px] bg-white md:rounded-xl"
+                >
                   <img
-                    class="md:rounded-xl cursor-pointer"
+                    class="md:rounded-xl cursor-pointer hover:opacity-50"
                     src="assets/images/image-product-4.jpg"
                     alt=""
                     width="75"
@@ -307,7 +347,9 @@
               <div
                 class="quantity_editor flex justify-center md:w-72 bg-light-grayish-blue rounded-lg my-4"
               >
-                <button class="decrement px-5">
+                <button
+                  class="decrement px-5 fill-orange-500 hover:fill-orange-300"
+                >
                   <svg
                     width="12"
                     height="4"
@@ -320,7 +362,7 @@
                         id="a"
                       />
                     </defs>
-                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" />
+                    <use fill-rule="nonzero" xlink:href="#a" />
                   </svg>
                 </button>
                 <input
@@ -330,7 +372,9 @@
                   value="0"
                   class="w-full bg-transparent text-center text-black font-semibold text-xs py-4 outline-none"
                 />
-                <button class="increment px-5">
+                <button
+                  class="increment px-5 fill-orange-500 hover:fill-orange-300"
+                >
                   <svg
                     width="12"
                     height="12"
@@ -343,15 +387,23 @@
                         id="b"
                       />
                     </defs>
-                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b" />
+                    <use
+                      fill-rule="nonzero"
+                      xlink:href="#b"
+                      class="fill-inherit"
+                    />
                   </svg>
                 </button>
               </div>
               <button
                 type="submit"
-                class="cart_btn w-full md:w-full flex justify-center items-center bg-orange py-3 text-sm rounded-lg font-extrabold text-dark-blue gap-x-3 transition-all duration-150"
+                class="cart_btn w-full md:w-full flex justify-center items-center bg-orange hover:bg-orange/50 py-3 text-sm rounded-lg font-extrabold text-dark-blue gap-x-3 transition-all duration-150"
               >
-                <img src="assets/images/icon-cart.svg" alt="" width="16" />
+                <img
+                  src="assets/images/icon-cart-black.svg"
+                  alt=""
+                  width="16"
+                />
                 Add to cart
               </button>
             </div>
